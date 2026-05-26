@@ -1,12 +1,8 @@
 {
   "outputDirectory": "public",
-  "functions": {
-    "api/search.py": { "runtime": "@vercel/python@4.3.1" },
-    "api/item.py":   { "runtime": "@vercel/python@4.3.1" }
-  },
   "routes": [
     { "src": "/api/search", "dest": "/api/search.py" },
     { "src": "/api/item",   "dest": "/api/item.py" },
-    { "src": "/(.*)",       "dest": "/public/$1" }
+    { "src": "/(.*)",       "dest": "/$1" }
   ]
 }
