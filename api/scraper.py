@@ -205,7 +205,10 @@ def get_item_hardness(soup: BeautifulSoup) -> dict:
 def get_item_sprite(soup: BeautifulSoup) -> dict:
     def safe_src(sel):
         t = soup.select_one(sel)
-        return t.get("src") if t else None
+        if t:
+            # Cek data-src dulu, kalau gak ada baru fallback ke src
+            return t.get("data-src") or t.get("src")
+        return None
     return {
         "Item": safe_src("div.card-header img"),
         "Tree": safe_src('th:-soup-contains("Grow Time") + td img'),
