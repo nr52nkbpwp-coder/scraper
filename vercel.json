@@ -1,8 +1,0 @@
-{
-  "outputDirectory": "public",
-  "routes": [
-    { "src": "/api/search", "dest": "/api/search.py" },
-    { "src": "/api/item",   "dest": "/api/item.py" },
-    { "src": "/(.*)",       "dest": "/$1" }
-  ]
-}
