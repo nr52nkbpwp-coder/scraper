@@ -423,10 +423,10 @@
       itemCardEl.innerHTML = `
         <div class="card-header-row">
           <div class="sprite-box">
-            ${sprite.Item
-              ? `<img src="${sprite.Item}" alt="${escapeHtml(d.Title)}" />`
-              : `<span class="no-img">🌿</span>`}
-          </div>
+  ${sprite.Item
+    ? `<img src="${sprite.Item}" referrerpolicy="no-referrer" alt="${escapeHtml(d.Title)}" />`
+    : `<span class="no-img">🌿</span>`}
+</div>
           <div class="item-meta">
             <div class="item-title">${escapeHtml(d.Title || '?')}</div>
             <div class="item-desc">${escapeHtml(d.Description || '')}</div>
@@ -480,11 +480,11 @@
         </div>
 
         ${sprite.Item || sprite.Tree || sprite.Seed ? `
-        <div class="sprites-section">
-          ${sprite.Item  ? `<div class="sprite-thumb"><img src="${sprite.Item}"  alt="Item"  /><span>Item</span></div>` : ''}
-          ${sprite.Tree  ? `<div class="sprite-thumb"><img src="${sprite.Tree}"  alt="Tree"  /><span>Tree</span></div>` : ''}
-          ${sprite.Seed  ? `<div class="sprite-thumb"><img src="${sprite.Seed}"  alt="Seed"  /><span>Seed</span></div>` : ''}
-        </div>` : ''}
+<div class="sprites-section">
+  ${sprite.Item  ? `<div class="sprite-thumb"><img src="${sprite.Item}" referrerpolicy="no-referrer" alt="Item"  /><span>Item</span></div>` : ''}
+  ${sprite.Tree  ? `<div class="sprite-thumb"><img src="${sprite.Tree}" referrerpolicy="no-referrer" alt="Tree"  /><span>Tree</span></div>` : ''}
+  ${sprite.Seed  ? `<div class="sprite-thumb"><img src="${sprite.Seed}" referrerpolicy="no-referrer" alt="Seed"  /><span>Seed</span></div>` : ''}
+</div>` : ''}
 
         <div class="recipes-section">
           ${recipes.length ? `
