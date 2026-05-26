@@ -1,0 +1,14 @@
+{
+  "functions": {
+    "api/search.py": {
+      "runtime": "@vercel/python@4.3.1"
+    },
+    "api/item.py": {
+      "runtime": "@vercel/python@4.3.1"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/search", "destination": "/api/search.py" },
+    { "source": "/api/item", "destination": "/api/item.py" }
+  ]
+}
