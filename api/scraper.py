@@ -104,28 +104,32 @@ def search_item(item_name: str, show_url: bool = True) -> list:
 
 
 def fetch_thumbnails(titles: list) -> dict:
-    """Fetch item sprite thumbnails via MediaWiki pageimages API (batch)."""
-    try:
-        resp = _session.get(API_BASE, params={
-            "action": "query",
-            "titles": "|".join(titles[:20]),
-            "prop": "pageimages",
-            "piprop": "thumbnail",
-            "pithumbsize": 64,
-            "format": "json",
-            "redirects": 1,
-        }, timeout=15)
-        resp.raise_for_status()
-        pages = resp.json().get("query", {}).get("pages", {})
-        result = {}
-        for page in pages.values():
-            title = page.get("title", "")
-            thumb = page.get("thumbnail", {}).get("source")
-            if thumb:
-                result[title] = thumb
-        return result
-    except Exception:
-        return {}
+    """Fetch item sprite via parse API — ambil dari card-header img, sama seperti detail page."""
+    result = {}
+    for title in titles[:8]:
+        try:
+            resp = _session.get(API_BASE, params={
+                "action": "parse",
+                "page": title,
+                "prop": "text",
+                "format": "json",
+                "disableeditsection": 1,
+                "disabletoc": 1,
+            }, timeout=10)
+            resp.raise_for_status()
+            data = resp.json()
+            if "error" in data:
+                continue
+            html = data["parse"]["text"]["*"]
+            soup = BeautifulSoup(html, "html.parser")
+            img = soup.select_one("div.card-header img")
+            if img:
+                src = img.get("data-src") or img.get("src")
+                if src:
+                    result[title] = src
+        except Exception:
+            continue
+    return result
 
 
 # ── Internal helpers ───────────────────────────────────────────────────────────
