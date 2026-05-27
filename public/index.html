@@ -32,7 +32,6 @@
       overflow-x: hidden;
     }
 
-    /* ── Background grid ── */
     body::before {
       content: '';
       position: fixed; inset: 0; z-index: 0;
@@ -44,23 +43,13 @@
       pointer-events: none;
     }
 
-    /* ── Glow orbs ── */
-    .orb {
-      position: fixed; border-radius: 50%;
-      filter: blur(120px); opacity: 0.12; pointer-events: none; z-index: 0;
-    }
+    .orb { position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.12; pointer-events: none; z-index: 0; }
     .orb-1 { width: 600px; height: 600px; background: var(--accent); top: -200px; left: -200px; }
     .orb-2 { width: 500px; height: 500px; background: var(--accent2); bottom: -200px; right: -100px; }
 
-    /* ── Layout ── */
     #app { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
 
-    /* ── Header ── */
-    header {
-      text-align: center;
-      padding: 3rem 0 2.5rem;
-      animation: fadeDown .6s ease both;
-    }
+    header { text-align: center; padding: 3rem 0 2.5rem; animation: fadeDown .6s ease both; }
     .logo-badge {
       display: inline-flex; align-items: center; gap: .5rem;
       background: var(--card); border: 1px solid var(--border);
@@ -70,28 +59,16 @@
     }
     .logo-badge span { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: block; animation: pulse 2s infinite; }
     h1 {
-      font-family: var(--pixel);
-      font-size: clamp(2.5rem, 7vw, 4rem);
-      font-weight: 700;
-      letter-spacing: -.02em;
-      line-height: 1;
+      font-family: var(--pixel); font-size: clamp(2.5rem, 7vw, 4rem); font-weight: 700;
+      letter-spacing: -.02em; line-height: 1;
       background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 60%, #818cf8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
       margin-bottom: .75rem;
     }
     .subtitle { color: var(--muted); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; }
 
-    /* ── Search bar ── */
-    .search-wrap {
-      position: relative; max-width: 580px; margin: 2.5rem auto 0;
-      animation: fadeUp .6s .15s ease both;
-    }
-    .search-icon {
-      position: absolute; left: 1rem; top: 50%; transform: translateY(-50%);
-      color: var(--muted); pointer-events: none; font-size: 1.1rem;
-    }
+    .search-wrap { position: relative; max-width: 580px; margin: 2.5rem auto 0; animation: fadeUp .6s .15s ease both; }
+    .search-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; font-size: 1.1rem; }
     #searchInput {
       width: 100%; padding: .9rem 3.5rem .9rem 3rem;
       background: var(--card); border: 1px solid var(--border);
@@ -100,25 +77,19 @@
       outline: none; transition: border-color .2s, box-shadow .2s;
     }
     #searchInput::placeholder { color: var(--muted); }
-    #searchInput:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(74,222,128,.12);
-    }
+    #searchInput:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(74,222,128,.12); }
     #clearBtn {
       position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
       background: none; border: none; color: var(--muted); cursor: pointer;
-      font-size: 1rem; display: none; padding: .2rem;
-      transition: color .2s;
+      font-size: 1rem; display: none; padding: .2rem; transition: color .2s;
     }
     #clearBtn:hover { color: var(--text); }
 
-    /* ── Suggestions dropdown ── */
     #suggestions {
       position: absolute; top: calc(100% + 8px); left: 0; right: 0; z-index: 50;
       background: var(--card); border: 1px solid var(--border);
       border-radius: 12px; overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,.5);
-      display: none;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5); display: none;
     }
     .sug-item {
       padding: .5rem .75rem; cursor: pointer; font-size: .85rem;
@@ -127,7 +98,6 @@
     }
     .sug-item:last-child { border-bottom: none; }
     .sug-item:hover, .sug-item.active { background: var(--border); }
-    .sug-item .sug-icon { color: var(--muted); font-size: .8rem; flex-shrink: 0; }
     .sug-thumb {
       width: 36px; height: 36px; flex-shrink: 0;
       background: var(--surface); border: 1px solid var(--border);
@@ -138,11 +108,7 @@
     .sug-thumb .sug-no-img { font-size: .85rem; color: var(--muted); }
     .sug-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-    /* ── States ── */
-    #status {
-      text-align: center; padding: 3rem 1rem; color: var(--muted); font-size: .85rem;
-      animation: fadeUp .4s ease both;
-    }
+    #status { text-align: center; padding: 3rem 1rem; color: var(--muted); font-size: .85rem; animation: fadeUp .4s ease both; }
     .spinner {
       width: 36px; height: 36px; border: 3px solid var(--border);
       border-top-color: var(--accent); border-radius: 50%;
@@ -150,16 +116,11 @@
     }
     .empty-icon { font-size: 2.5rem; margin-bottom: 1rem; }
 
-    /* ── Item card ── */
-    #itemCard {
-      margin-top: 2.5rem;
-      animation: fadeUp .4s ease both;
-    }
+    #itemCard { margin-top: 2.5rem; animation: fadeUp .4s ease both; }
     .card-header-row {
       display: flex; align-items: flex-start; gap: 1.5rem;
       background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px 16px 0 0; padding: 1.5rem;
-      border-bottom: none;
+      border-radius: 16px 16px 0 0; padding: 1.5rem; border-bottom: none;
     }
     .sprite-box {
       width: 96px; height: 96px; flex-shrink: 0;
@@ -171,74 +132,34 @@
     .sprite-box .no-img { color: var(--muted); font-size: 2rem; }
 
     .item-meta { flex: 1; min-width: 0; }
-    .item-title {
-      font-family: var(--pixel); font-size: 1.8rem; font-weight: 700;
-      color: var(--text); line-height: 1.1; margin-bottom: .4rem;
-    }
+    .item-title { font-family: var(--pixel); font-size: 1.8rem; font-weight: 700; color: var(--text); line-height: 1.1; margin-bottom: .4rem; }
     .item-desc { color: var(--muted); font-size: .8rem; line-height: 1.6; margin-bottom: .75rem; font-style: italic; }
     .tag-row { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .tag {
-      font-size: .7rem; padding: .2rem .6rem; border-radius: 999px;
-      border: 1px solid; font-family: var(--mono); letter-spacing: .05em;
-      text-transform: uppercase;
-    }
-    .tag-rarity  { color: var(--warn);   border-color: rgba(250,204,21,.3);  background: rgba(250,204,21,.06); }
-    .tag-type    { color: var(--accent2); border-color: rgba(34,211,238,.3); background: rgba(34,211,238,.06); }
-    .tag-chi     { color: #c084fc;        border-color: rgba(192,132,252,.3); background: rgba(192,132,252,.06); }
-    .tag-prop    { color: var(--accent);  border-color: rgba(74,222,128,.3); background: rgba(74,222,128,.06); }
-
-    /* ── Stats grid ── */
-    .stats-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border); border-top: none;
-    }
-    .stat-cell {
-      background: var(--card); padding: 1rem 1.25rem;
-    }
-    .stat-label { font-size: .65rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .3rem; }
-    .stat-value { font-family: var(--pixel); font-size: 1rem; color: var(--text); }
-    .stat-value.green { color: var(--accent); }
-    .stat-value.cyan  { color: var(--accent2); }
-
-    /* ── Hardness bar ── */
-    .hardness-row { display: flex; gap: .5rem; align-items: center; }
-    .hard-bar { height: 6px; background: var(--border); border-radius: 3px; flex: 1; overflow: hidden; }
-    .hard-fill { height: 100%; border-radius: 3px; background: var(--accent); transition: width .6s ease; }
-    .hard-num  { font-family: var(--pixel); font-size: .9rem; min-width: 2ch; color: var(--accent); }
+    .tag { font-size: .7rem; padding: .2rem .6rem; border-radius: 999px; border: 1px solid; font-family: var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+    .tag-rarity { color: var(--warn);   border-color: rgba(250,204,21,.3);  background: rgba(250,204,21,.06); }
+    .tag-type   { color: var(--accent2); border-color: rgba(34,211,238,.3); background: rgba(34,211,238,.06); }
+    .tag-chi    { color: #c084fc;        border-color: rgba(192,132,252,.3); background: rgba(192,132,252,.06); }
+    .tag-prop   { color: var(--accent);  border-color: rgba(74,222,128,.3); background: rgba(74,222,128,.06); }
 
     /* ── Sprites row ── */
     .sprites-section {
       background: var(--card); border: 1px solid var(--border);
-      border-top: none; padding: 1.25rem; display: flex; gap: 1.5rem; flex-wrap: wrap;
+      border-top: none; border-radius: 0 0 16px 16px;
+      padding: 1.25rem; display: flex; gap: 1.5rem; flex-wrap: wrap;
     }
     .sprite-thumb { text-align: center; }
     .sprite-thumb img {
       width: 64px; height: 64px; object-fit: contain; image-rendering: pixelated;
       background: var(--surface); border: 1px solid var(--border); border-radius: 8px; display: block;
     }
-    .sprite-thumb span { font-size: .65rem; color: var(--muted); margin-top: .3rem; display: block; text-transform: uppercase; letter-spacing: .08em; }
+    .sprite-thumb .sprite-label { font-size: .65rem; color: var(--muted); margin-top: .3rem; display: block; text-transform: uppercase; letter-spacing: .08em; }
     .dl-btn {
-      margin-top: .35rem; width: 100%; padding: .2rem 0;
+      margin-top: .35rem; width: 100%; padding: .25rem 0;
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 6px; color: var(--accent); font-size: .75rem;
-      cursor: pointer; transition: all .15s;
+      cursor: pointer; transition: all .15s; display: block;
     }
     .dl-btn:hover { background: rgba(74,222,128,.12); border-color: var(--accent); }
-
-    /* ── Recipes ── */
-    .recipes-section {
-      background: var(--card); border: 1px solid var(--border);
-      border-top: none; border-radius: 0 0 16px 16px; padding: 1.25rem;
-    }
-    .section-title { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; margin-bottom: .75rem; }
-    .recipe-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .recipe-chip {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 8px; padding: .3rem .8rem; font-size: .8rem;
-      color: var(--accent2); cursor: pointer; transition: all .15s;
-    }
-    .recipe-chip:hover { border-color: var(--accent2); background: rgba(34,211,238,.08); }
 
     /* ── Wiki link ── */
     .wiki-link {
@@ -247,8 +168,11 @@
       transition: color .2s; margin-top: 1.5rem;
     }
     .wiki-link:hover { color: var(--accent); }
+    .bottom-section {
+      background: var(--card); border: 1px solid var(--border);
+      border-top: none; border-radius: 0 0 16px 16px; padding: 1.25rem;
+    }
 
-    /* ── Footer ── */
     footer {
       text-align: center; margin-top: 4rem;
       color: var(--muted); font-size: .7rem; line-height: 1.8;
@@ -257,17 +181,14 @@
     footer a { color: var(--muted); text-decoration: none; }
     footer a:hover { color: var(--accent); }
 
-    /* ── Animations ── */
     @keyframes fadeDown { from { opacity:0; transform: translateY(-16px); } to { opacity:1; transform: none; } }
     @keyframes fadeUp   { from { opacity:0; transform: translateY(12px);  } to { opacity:1; transform: none; } }
     @keyframes spin     { to { transform: rotate(360deg); } }
     @keyframes pulse    { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
 
-    /* ── Responsive ── */
     @media (max-width: 560px) {
       .card-header-row { flex-direction: column; align-items: center; text-align: center; }
       .tag-row { justify-content: center; }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -305,25 +226,20 @@
   </div>
 
   <script>
-    // ─── Config ───────────────────────────────────────────────────────────────
-    // On Vercel these will be the same-origin API routes.
-    // For local dev (open index.html directly), point to your Vercel preview URL:
-    const API_BASE = '';  // leave empty for same-origin Vercel deploy
+    const API_BASE = '';
 
-    // ─── DOM refs ─────────────────────────────────────────────────────────────
-    const searchInput  = document.getElementById('searchInput');
-    const clearBtn     = document.getElementById('clearBtn');
-    const suggestionsEl= document.getElementById('suggestions');
-    const statusEl     = document.getElementById('status');
-    const itemCardEl   = document.getElementById('itemCard');
+    const searchInput   = document.getElementById('searchInput');
+    const clearBtn      = document.getElementById('clearBtn');
+    const suggestionsEl = document.getElementById('suggestions');
+    const statusEl      = document.getElementById('status');
+    const itemCardEl    = document.getElementById('itemCard');
 
-    // ─── State ────────────────────────────────────────────────────────────────
-    let sugItems = [];
-    let activeSug = -1;
+    let sugItems   = [];
+    let activeSug  = -1;
     let searchTimer = null;
-    let lastQuery = '';
+    let lastQuery  = '';
 
-    // ─── Search input handler ─────────────────────────────────────────────────
+    // ─── Search input ─────────────────────────────────────────────────────────
     searchInput.addEventListener('input', () => {
       const q = searchInput.value.trim();
       clearBtn.style.display = q ? 'block' : 'none';
@@ -372,8 +288,10 @@
       try {
         const res = await fetch(`${API_BASE}/api/search?q=${encodeURIComponent(q)}`);
         const data = await res.json();
-        // Store full result objects (Title + Thumbnail)
-        sugItems = (data.results || []).slice(0, 8);
+        // Filter: hapus hasil yang judulnya mengandung " - " (sub-kategori wiki)
+        const all = (data.results || []);
+        const filtered = all.filter(r => !r.Title.includes(' - '));
+        sugItems = filtered.slice(0, 8);
         activeSug = -1;
         renderSuggestions();
       } catch { hideSuggestions(); }
@@ -415,7 +333,6 @@
       searchInput.value = name;
       hideSuggestions();
       showLoading(name);
-
       try {
         const res = await fetch(`${API_BASE}/api/item?name=${encodeURIComponent(name)}`);
         const data = await res.json();
@@ -431,23 +348,39 @@
       statusEl.style.display = 'none';
       itemCardEl.style.display = 'block';
 
-      const sprite = d.Sprite || {};
-      const hardness = d.Hardness || {};
-      const maxH = 200;
+      const sprite  = d.Sprite || {};
+      const typeStr = Array.isArray(d.Type) ? d.Type.join(' / ') : (d.Type || '—');
+      const chiStr  = d.Chi || '—';
+      const props   = (d.Properties || []).filter(Boolean);
 
-      const typeStr  = Array.isArray(d.Type) ? d.Type.join(' / ') : (d.Type || '—');
-      const chiStr   = d.Chi || '—';
-      const props    = (d.Properties || []).filter(Boolean);
-      const recipes  = d.Recipe || [];
-      const seeds    = Array.isArray(d.SeedColor) ? d.SeedColor.join(', ') : (d.SeedColor || '—');
+      const spriteHtml = (sprite.Item || sprite.Tree || sprite.Seed) ? `
+        <div class="sprites-section">
+          ${sprite.Item ? `<div class="sprite-thumb">
+            <img src="${sprite.Item}" referrerpolicy="no-referrer" alt="Item"/>
+            <span class="sprite-label">Item</span>
+            <button class="dl-btn" data-url="${sprite.Item}" data-name="${escapeHtml(d.Title)}-item">⬇ Download</button>
+          </div>` : ''}
+          ${sprite.Tree ? `<div class="sprite-thumb">
+            <img src="${sprite.Tree}" referrerpolicy="no-referrer" alt="Tree"/>
+            <span class="sprite-label">Tree</span>
+            <button class="dl-btn" data-url="${sprite.Tree}" data-name="${escapeHtml(d.Title)}-tree">⬇ Download</button>
+          </div>` : ''}
+          ${sprite.Seed ? `<div class="sprite-thumb">
+            <img src="${sprite.Seed}" referrerpolicy="no-referrer" alt="Seed"/>
+            <span class="sprite-label">Seed</span>
+            <button class="dl-btn" data-url="${sprite.Seed}" data-name="${escapeHtml(d.Title)}-seed">⬇ Download</button>
+          </div>` : ''}
+        </div>` : `<div class="bottom-section">
+          <a class="wiki-link" href="${d.Url}" target="_blank" rel="noopener">↗ View on Growtopia Wiki</a>
+        </div>`;
 
       itemCardEl.innerHTML = `
         <div class="card-header-row">
           <div class="sprite-box">
-  ${sprite.Item
-    ? `<img src="${sprite.Item}" referrerpolicy="no-referrer" alt="${escapeHtml(d.Title)}" />`
-    : `<span class="no-img">🌿</span>`}
-</div>
+            ${sprite.Item
+              ? `<img src="${sprite.Item}" referrerpolicy="no-referrer" alt="${escapeHtml(d.Title)}"/>`
+              : `<span class="no-img">🌿</span>`}
+          </div>
           <div class="item-meta">
             <div class="item-title">${escapeHtml(d.Title || '?')}</div>
             <div class="item-desc">${escapeHtml(d.Description || '')}</div>
@@ -459,53 +392,43 @@
             </div>
           </div>
         </div>
-
-
-
+        ${spriteHtml}
         ${sprite.Item || sprite.Tree || sprite.Seed ? `
-<div class="sprites-section">
-  ${sprite.Item ? `<div class="sprite-thumb">
-    <img src="${sprite.Item}" referrerpolicy="no-referrer" alt="Item" />
-    <span>Item</span>
-    <button class="dl-btn" data-url="${sprite.Item}" data-name="${escapeHtml(d.Title)}-item">⬇</button>
-  </div>` : ''}
-  ${sprite.Tree ? `<div class="sprite-thumb">
-    <img src="${sprite.Tree}" referrerpolicy="no-referrer" alt="Tree" />
-    <span>Tree</span>
-    <button class="dl-btn" data-url="${sprite.Tree}" data-name="${escapeHtml(d.Title)}-tree">⬇</button>
-  </div>` : ''}
-  ${sprite.Seed ? `<div class="sprite-thumb">
-    <img src="${sprite.Seed}" referrerpolicy="no-referrer" alt="Seed" />
-    <span>Seed</span>
-    <button class="dl-btn" data-url="${sprite.Seed}" data-name="${escapeHtml(d.Title)}-seed">⬇</button>
-  </div>` : ''}
-</div>` : ''}
-
-        <div class="recipes-section">
-          <a class="wiki-link" href="${d.Url}" target="_blank" rel="noopener">
-            ↗ View on Growtopia Wiki
-          </a>
-        </div>
+        <div class="bottom-section" style="border-radius:0 0 16px 16px; margin-top:0; border-top:none;">
+          <a class="wiki-link" href="${d.Url}" target="_blank" rel="noopener">↗ View on Growtopia Wiki</a>
+        </div>` : ''}
       `;
 
-
-    }
-
-    // ─── Download sprite ─────────────────────────────────────────────────────
-    async function downloadSprite(url, name) {
-      try {
-        const res = await fetch(url, { referrerPolicy: 'no-referrer' });
-        const blob = await res.blob();
-        const ext = url.split('.').pop().split('?')[0] || 'png';
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = `${name}.${ext}`;
-        a.click();
-        URL.revokeObjectURL(a.href);
-      } catch {
-        // fallback: open in new tab
-        window.open(url, '_blank');
-      }
+      // ─── Download handler — proxy via canvas to bypass CORS ───────────────
+      itemCardEl.querySelectorAll('.dl-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const url  = btn.dataset.url;
+          const name = btn.dataset.name;
+          const img  = new Image();
+          img.crossOrigin = 'anonymous';
+          img.referrerPolicy = 'no-referrer';
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width  = img.naturalWidth;
+            canvas.height = img.naturalHeight;
+            canvas.getContext('2d').drawImage(img, 0, 0);
+            canvas.toBlob(blob => {
+              const a = document.createElement('a');
+              a.href = URL.createObjectURL(blob);
+              a.download = `${name}.png`;
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+              URL.revokeObjectURL(a.href);
+            }, 'image/png');
+          };
+          img.onerror = () => {
+            // Fallback: buka di tab baru
+            window.open(url, '_blank');
+          };
+          img.src = url;
+        });
+      });
     }
 
     // ─── UI states ────────────────────────────────────────────────────────────
@@ -534,12 +457,10 @@
       `;
     }
 
-    // ─── Utils ────────────────────────────────────────────────────────────────
     function escapeHtml(str) {
       return String(str ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
-    // ─── URL param auto-search ────────────────────────────────────────────────
     const urlParams = new URLSearchParams(window.location.search);
     const preload = urlParams.get('item');
     if (preload) { searchInput.value = preload; clearBtn.style.display = 'block'; fetchItem(preload); }
