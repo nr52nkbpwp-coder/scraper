@@ -376,7 +376,7 @@
       if (!sugItems.length) { hideSuggestions(); return; }
       suggestionsEl.innerHTML = sugItems.map((item, i) => {
         const thumb = item.Thumbnail
-          ? `<div class="sug-thumb"><img src="${item.Thumbnail}" alt="" loading="lazy"/></div>`
+          ? `<div class="sug-thumb"><img src="${item.Thumbnail}" alt="" loading="lazy" referrerpolicy="no-referrer"/></div>`
           : `<div class="sug-thumb"><span class="sug-no-img">🌿</span></div>`;
         return `<div class="sug-item" data-i="${i}">
           ${thumb}
